@@ -23,13 +23,13 @@ app.use(signoutRouter);
 
 // async -> ( callback, promise, async-await )
 // app.all('*', async (req, res, next) => {
-  //   next(new NotFoundError());
-  // })
-  
-  // using next instead of throw is annoying
-  app.all('*',async (req, res) => {
-    throw new NotFoundError();
-  })
+//   next(new NotFoundError());
+// })
+
+// using next instead of throw is annoying
+app.all('*',async (req, res) => {
+  throw new NotFoundError();
+})
 
 app.use(errorHandler);
 
