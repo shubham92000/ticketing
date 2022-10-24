@@ -80,3 +80,5 @@ it('created a ticket with valid inputs', async () => {
 	expect(tickets[0].price).toEqual(20);
 	expect(tickets[0].title).toEqual(title);
 });
+
+it('pass', () => {});
