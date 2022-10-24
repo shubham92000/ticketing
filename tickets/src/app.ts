@@ -1,8 +1,9 @@
 import express from 'express';
 import 'express-async-errors';
 import { json } from 'body-parser';
-import { errorHandler, NotFoundError } from '@ticket-mssg/common';
+import { currentUser, errorHandler, NotFoundError } from '@ticket-mssg/common';
 import cookieSession from 'cookie-session';
+import { createTicketRouter } from '../routes/new';
 
 const app = express();
 app.set('trust proxy', true);
@@ -14,15 +15,8 @@ app.use(
 	})
 );
 
-// sync
-// app.all('*', () => {
-//   throw new NotFoundError();
-// })
-
-// async -> ( callback, promise, async-await )
-// app.all('*', async (req, res, next) => {
-//   next(new NotFoundError());
-// })
+app.use(currentUser);
+app.use(createTicketRouter);
 
 // using next instead of throw is annoying
 app.all('*', async (req, res) => {
