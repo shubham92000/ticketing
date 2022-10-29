@@ -1,9 +1,9 @@
 import { requireAuth, validateRequest } from '@ticket-mssg/common';
 import express, { Request, Response } from 'express';
 import { body } from 'express-validator';
+import { TicketCreatedPublisher } from '../events/publishers/ticket-created-publisher';
 import { Ticket } from '../models/ticket';
-import { TicketCreatedPublisher } from '../src/events/publishers/ticket-created-publisher';
-import { natsWrapper } from '../src/nats-wrapper';
+import { natsWrapper } from '../nats-wrapper';
 
 const router = express.Router();
 

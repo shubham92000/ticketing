@@ -3,10 +3,10 @@ import 'express-async-errors';
 import { json } from 'body-parser';
 import { currentUser, errorHandler, NotFoundError } from '@ticket-mssg/common';
 import cookieSession from 'cookie-session';
-import { createTicketRouter } from '../routes/new';
-import { showTicketRouter } from '../routes/show';
-import { indexTicketRouter } from '../routes';
-import { updateTicketRouter } from '../routes/update';
+import { indexTicketRouter } from './routes';
+import { createTicketRouter } from './routes/new';
+import { showTicketRouter } from './routes/show';
+import { updateTicketRouter } from './routes/update';
 
 const app = express();
 app.set('trust proxy', true);
